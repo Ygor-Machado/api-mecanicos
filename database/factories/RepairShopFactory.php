@@ -17,7 +17,11 @@ class RepairShopFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->company(),
+            'tax_id' => $this->faker->numberBetween(10000000, 99999999),
+            'description' => $this->faker->realText(),
+            'lat' => $this->faker->latitude(),
+            'lng' => $this->faker->longitude(),
         ];
     }
 }
