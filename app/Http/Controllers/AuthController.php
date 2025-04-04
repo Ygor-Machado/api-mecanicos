@@ -19,13 +19,18 @@ class AuthController extends Controller
     {
         $user = $this->authServices->login($request);
 
-        return AuthResource::make($user);
+        return AuthResource::make($user->load('cars'));
     }
 
     public function register(RegisterRequest $request)
     {
         $user = $this->authServices->store($request);
 
-        return AuthResource::make($user);
+        return AuthResource::make($user->load('cars'));
+    }
+
+    public function logout()
+    {
+        $this->authServices->logout();
     }
 }

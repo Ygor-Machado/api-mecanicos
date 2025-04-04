@@ -29,4 +29,9 @@ class AuthServices
 
         return $user;
     }
+
+    public function logout()
+    {
+        auth()->user()->tokens()->delete();
+    }
 }
